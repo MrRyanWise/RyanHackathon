@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="820.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hackathon.view.superUser.ControllerAccueilHackathon">
+   <children>
+      <HBox alignment="CENTER" layoutY="783.6" prefHeight="34.0" prefWidth="1000.0" spacing="10.0" style="-fx-background-color: #339999;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="90.0" prefHeight="54.0" prefWidth="460.0" text="Sélectionner le hackathon à administrer">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font></Label>
+
+      <Label alignment="CENTER" prefHeight="60.0" prefWidth="1000.0" style="-fx-background-color: #339999;" styleClass="titre-vue" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="Arial" size="40.0" />
+         </font></Label>
+      <ListView fx:id="lvHack" layoutX="149.0" layoutY="175.0" prefHeight="442.0" prefWidth="523.0" style="-fx-border-color: #DEB887;" />
+      <Button fx:id="btAdministrer" layoutX="794.0" layoutY="300.0" mnemonicParsing="false" onAction="#doAdministrer" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #339999; -fx-border-radius: 100;" text="Administrer">
+         <font>
+            <Font name="Comic Sans MS" size="16.0" />
+         </font></Button>
+      <Button fx:id="btCreer" layoutX="794.0" layoutY="470.0" mnemonicParsing="false" onAction="#doCreer" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #339999; -fx-border-radius: 100;" text="Créer">
+         <font>
+            <Font name="Comic Sans MS" size="16.0" />
+         </font></Button>
+      <Label fx:id="lbNom" layoutX="387.0" layoutY="6.0" text="Nom de l'admin">
+         <font>
+            <Font name="Arial" size="40.0" />
+         </font></Label>
+      <Circle fill="WHITE" layoutX="30.0" layoutY="30.0" onMouseClicked="#doRetour" radius="20.0" stroke="#993434" strokeType="INSIDE" strokeWidth="5.0" />
+      <Polygon fill="#339999" layoutX="-11.0" layoutY="16.0" onDragDetected="#doRetour" points="27.800006866455078, 13.599996566772461, 49.9999885559082, 21.599998474121094, 49.9999885559082, 5.80000114440918" stroke="#993434" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DetailNotes" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2a691df6-0d47-46e1-994e-0eded5e7379a">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[aGFja2F0aG9uLnBlcnNvbm5lIEFTICw3MjYsMTU2LDUwZTQwMGJmLWU3MTctNGM4ZC04MTc0LWVj
+YTM0YWNiMzU2NjtoYWNrYXRob24uZXF1aXBlIEFTICw0NywxMTMsYWNiZGZmYTAtZGUwOC00OTE4
+LWJlMTYtMWM2OGQ1MzA2ZjVlO2hhY2thdGhvbi5ldmFsdWVyIEFTICwzMjMsNzksOWI1MmUwODQt
+MDQ3MS00NjAwLThmZDMtMmE1MTJkZDIxYTY3O2hhY2thdGhvbi5jb3JyZWN0ZXVyIEFTICw0Nzks
+Mjg1LDAxY2U1MDk4LTI0ZWEtNGU0NS04MTMwLWZmZGVlOTJjN2Y0Yjs=]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreSQL - hackathon"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT hackathon.equipe.pseudo,
+	hackathon.evaluer.note,
+	hackathon.personne.nom,
+	hackathon.personne.prenom,
+	hackathon.personne.mail
+FROM hackathon.evaluer
+	INNER JOIN hackathon.equipe ON 
+	 hackathon.evaluer.idequipe = hackathon.equipe.idequipe 
+	INNER JOIN hackathon.correcteur ON 
+	 hackathon.evaluer.id = hackathon.correcteur.id 
+	INNER JOIN hackathon.personne ON 
+	 hackathon.correcteur.id = hackathon.personne.id 
+ORDER BY hackathon.equipe.pseudo DESC]]>
+	</queryString>
+	<field name="pseudo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="pseudo"/>
+		<property name="com.jaspersoft.studio.field.label" value="pseudo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="equipe"/>
+	</field>
+	<field name="note" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="note"/>
+		<property name="com.jaspersoft.studio.field.label" value="note"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evaluer"/>
+	</field>
+	<field name="nom" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nom"/>
+		<property name="com.jaspersoft.studio.field.label" value="nom"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="personne"/>
+	</field>
+	<field name="prenom" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="prenom"/>
+		<property name="com.jaspersoft.studio.field.label" value="prenom"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="personne"/>
+	</field>
+	<field name="mail" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="mail"/>
+		<property name="com.jaspersoft.studio.field.label" value="mail"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="personne"/>
+	</field>
+	<variable name="Variable_1" class="java.lang.String"/>
+	<group name="pseudo">
+		<groupExpression><![CDATA[$F{pseudo}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="230" y="7" width="100" height="30" uuid="771fa450-90cd-4351-86b0-8b9bf152e679"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DETAIL NOTATION]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="470" y="0" width="100" height="30" uuid="d0521643-6bf2-4d67-ad6c-f5177460135f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Comic Sans MS" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="6194d2e4-f1f9-424d-ae33-3278e36a6530">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8bd3d299-4c9e-4e06-af6f-fe9448ece53d"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[pseudo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="300" height="30" uuid="eb6adff7-5ad2-4046-a68f-0ec4645ad8f2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e06337f9-e0d1-47a4-8fe3-50381618a3cf"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[nom correcteur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="100" height="30" uuid="25a9ce0c-61a0-483e-a249-38841affd9f5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aedafdec-2ded-4945-bab9-be06bf7eaba1"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[note]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="38773c11-b006-4e0c-b824-1aaf4d2d55fe">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8bd3d299-4c9e-4e06-af6f-fe9448ece53d"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pseudo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="300" height="20" uuid="8a6aa851-f6aa-424d-bf02-bf172bcc76b1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e06337f9-e0d1-47a4-8fe3-50381618a3cf"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="100" height="20" uuid="1973201d-7c44-4b50-94af-74162b05be53">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aedafdec-2ded-4945-bab9-be06bf7eaba1"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Comic Sans MS" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{note}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="62" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="20" width="100" height="30" uuid="6e7a2aca-b7e2-461b-99b7-5f5b9baeb319"/>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="474" y="31" width="100" height="30" uuid="5bd98348-3c4d-41df-8164-7ac0d6724d11"/>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12"/>
+				</textElement>
+				<text><![CDATA[TRYG]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

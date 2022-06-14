@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="820.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hackathon.view.jury.ControllerJury">
+   <children>
+      <HBox alignment="CENTER" layoutX="114.0" layoutY="300.0" prefHeight="38.0" prefWidth="1000.0" spacing="10.0" style="-fx-background-color: #339999;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="353.0" layoutY="82.0" text="Hackathon :">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font></Label>
+      <Label alignment="CENTER" prefHeight="60.0" prefWidth="1000.0" style="-fx-background-color: #339999;" styleClass="titre-vue" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="Arial" size="40.0" />
+         </font></Label>
+      <Button fx:id="btSupprimerEquipe" layoutX="665.0" layoutY="520.0" mnemonicParsing="false" onAction="#doSoumettre" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #339999; -fx-border-radius: 100;" text="Soumettre">
+         <font>
+            <Font name="Comic Sans MS" size="16.0" />
+         </font></Button>
+      <Label layoutX="115.0" layoutY="132.0" text="Vos équipes">
+         <font>
+            <Font name="Comic Sans MS" size="16.0" />
+         </font></Label>
+      <Label layoutX="600.0" layoutY="132.0" text="Membres de l'équipe">
+         <font>
+            <Font name="Comic Sans MS" size="16.0" />
+         </font></Label>
+      <ListView fx:id="lvEquipe" layoutX="110.0" layoutY="196.0" onMouseClicked="#gererClicSurListe" prefHeight="400.0" prefWidth="227.0" />
+      <ListView fx:id="lvMembre" layoutX="600.0" layoutY="162.0" prefHeight="200.0" prefWidth="300.0" />
+      <Label fx:id="lbNomAdmin" layoutX="386.0" layoutY="6.0" text="Nom de Jury">
+         <font>
+            <Font name="Arial" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbNomHack" layoutX="488.0" layoutY="82.0" text="Nom du hackathon">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font>
+      </Label>
+      <Circle fill="WHITE" layoutX="30.0" layoutY="30.0" onMouseClicked="#doRetour" radius="20.0" stroke="#993434" strokeType="INSIDE" strokeWidth="5.0" />
+      <Label layoutX="611.0" layoutY="436.0" text="Note : " />
+      <Hyperlink layoutX="811.0" layoutY="372.0" text="Voir les travaux" />
+      <ComboBox fx:id="cbNote" layoutX="665.0" layoutY="432.0" prefWidth="150.0" />
+      <ListView fx:id="lvNote" layoutX="337.0" layoutY="196.0" onMouseClicked="#gererClicSurListe" prefHeight="400.0" prefWidth="227.0" />
+      <Label layoutX="110.0" layoutY="170.0" text="Pseudo:" />
+      <Label layoutX="337.0" layoutY="170.0" text="Note:" />
+      <Polygon fx:id="pRetour" fill="#339999" layoutX="-11.0" layoutY="16.0" onDragDetected="#doRetour" points="27.800006866455078, 13.599996566772461, 49.9999885559082, 21.599998474121094, 49.9999885559082, 5.80000114440918" stroke="#993434" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

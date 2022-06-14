@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="listeFinal" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="71151ca9-3574-45ee-8e4a-841f17472c93">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[aGFja2F0aG9uLmV2YWx1ZXIgLDE1LDMxLGE1NDQ0NDIwLWRlNjktNDg5OC1iN2Q4LTA5YWFkOGE3
+ODZhZTtoYWNrYXRob24uZXF1aXBlICwxNTksMTUsZTc0ZTMzNzktNDg0NS00ZDEyLThiYTEtNzhk
+Zjk2ODlkNjU3Ow==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreSQL - hackathon"/>
+	<style name="Defaut" isDefault="true" fontName="Comic Sans MS" fontSize="14"/>
+	<style name="Entete" fontSize="20" isBold="true"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT hackathon.equipe.pseudo,
+	AVG( hackathon.evaluer.note) AS moyenne,
+	hackathon.equipe.idequipe
+FROM hackathon.evaluer
+	INNER JOIN hackathon.equipe ON 
+	 hackathon.evaluer.idequipe = hackathon.equipe.idequipe 
+GROUP BY hackathon.equipe.pseudo,
+	hackathon.equipe.idequipe]]>
+	</queryString>
+	<field name="idequipe" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="idequipe"/>
+		<property name="com.jaspersoft.studio.field.label" value="idequipe"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="equipe"/>
+	</field>
+	<field name="pseudo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="pseudo"/>
+		<property name="com.jaspersoft.studio.field.label" value="pseudo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="equipe"/>
+	</field>
+	<field name="moyenne" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="moyenne"/>
+		<property name="com.jaspersoft.studio.field.label" value="moyenne"/>
+	</field>
+	<sortField name="moyenne" order="Descending"/>
+	<group name="idequipe">
+		<groupExpression><![CDATA[$F{idequipe}]]></groupExpression>
+	</group>
+	<group name="pseudo">
+		<groupExpression><![CDATA[$F{pseudo}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement style="Entete" x="190" y="7" width="153" height="30" uuid="47c71c41-e075-48a5-93b1-a16584608884"/>
+				<text><![CDATA[CLASSEMENT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="520" y="7" width="100" height="30" uuid="410e7776-9467-4031-9eae-5560b0dcecc1"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<staticText>
+				<reportElement style="Entete" x="0" y="0" width="185" height="61" uuid="fb86c25e-bd5a-4e29-9e04-c8ba8521d866">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a66573bd-9bf3-411c-aad4-5615684f2352"/>
+				</reportElement>
+				<text><![CDATA[Rang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Entete" x="185" y="0" width="185" height="61" uuid="15e0c0af-a455-457f-a0b9-07aef6c910b6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c85bdf22-413f-4ea6-b5ae-c2addf076e94"/>
+				</reportElement>
+				<text><![CDATA[pseudo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Entete" x="370" y="0" width="185" height="61" uuid="08afbff7-7c0e-4740-9db6-973c7b22f2d4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="71ec865e-a64f-4c1c-aa2a-36e98bd2805d"/>
+				</reportElement>
+				<text><![CDATA[moyenne]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<textField>
+				<reportElement x="0" y="0" width="185" height="30" printWhenGroupChanges="idequipe" uuid="9b6c5446-84b6-4c16-b7be-3b2abd428e6c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a66573bd-9bf3-411c-aad4-5615684f2352"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="185" height="30" printWhenGroupChanges="idequipe" uuid="0eeec58f-1b04-4fb8-8128-02b3c7912977">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c85bdf22-413f-4ea6-b5ae-c2addf076e94"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{pseudo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="185" height="30" printWhenGroupChanges="idequipe" uuid="0a835908-b06c-4ce3-b257-ccb37edf20bb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="71ec865e-a64f-4c1c-aa2a-36e98bd2805d"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[String.format( "%.2f", $F{moyenne})
+]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="54" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="-10" y="12" width="123" height="30" uuid="b728214f-9497-49cb-befd-8f4f5794da39"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="496" y="24" width="100" height="30" uuid="41c58fe6-a8a6-4b25-b96e-7027a0d45411"/>
+				<text><![CDATA[TRYG ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,22 @@
+
+.titre-vue {
+    -fx-font-size: 20;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+
+
+.message-accueil {
+    -fx-background-color: cornsilk;
+    -fx-padding: 10;
+    -fx-border-color: gray; 
+    -fx-border-width: 1;
+    -fx-font-size: 16;
+}
+
+.button {
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-background-color: #339999; 
+    -fx-font-family: 'Comic sans ms'; 
+}
