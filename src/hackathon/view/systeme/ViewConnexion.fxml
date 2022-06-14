@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="820.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hackathon.view.systeme.ControllerConnexion">
+   <children>
+      <FlowPane alignment="CENTER" layoutX="-1.0" layoutY="60.0" prefHeight="736.0" prefWidth="1000.0" style="-fx-position-shape: fixed;">
+         <children>
+            <VBox alignment="CENTER" fillWidth="false" prefHeight="400.0" prefWidth="400.0" spacing="30.0">
+               <children>
+                  <GridPane alignment="CENTER" prefHeight="309.0" prefWidth="442.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="txfPseudo" prefHeight="26.0" prefWidth="411.0" GridPane.rowIndex="1" />
+                        <PasswordField fx:id="pwfMotDePasse" GridPane.rowIndex="3" />
+                        <Label contentDisplay="CENTER" text="IDENTIFIANT :">
+                           <font>
+                              <Font name="Comic Sans MS" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="CLÉ DE SECURITÉ :" textAlignment="CENTER" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Comic Sans MS" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="338.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#doConnexion" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #339999;" text="Envoyer">
+                           <font>
+                              <Font name="Comic Sans MS" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children></FlowPane>
+      <Pane prefHeight="60.0" prefWidth="1000.0" style="-fx-background-color: #339999;">
+         <children>
+            <Label layoutX="313.0" layoutY="7.0" text="TRYG HACKATHON">
+               <font>
+                  <Font name="Arial" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="50.0" fitWidth="98.0" layoutX="7.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane layoutY="796.0" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #339999;" />
+   </children>
+</AnchorPane>

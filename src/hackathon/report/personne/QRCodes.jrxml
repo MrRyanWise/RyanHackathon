@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="QRCodes" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0a43f9e8-0485-434f-9ab0-6d998ccd758a">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[Y2F0ZWdvcmllIEFTICw3MiwxNDEsMWMyMWZiOTYtZmJmYS00NzExLTk5MDktMzEwYmFiMzRhNmUx
+Ow==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreSQL - tuto"/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<queryString language="SQL">
+		<![CDATA[SELECT libelle
+FROM categorie
+ORDER BY categorie.libelle ASC]]>
+	</queryString>
+	<field name="libelle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="libelle"/>
+		<property name="com.jaspersoft.studio.field.label" value="libelle"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="categorie"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="89" splitType="Stretch">
+			<componentElement>
+				<reportElement x="200" y="0" width="101" height="89" uuid="6e4443d4-3340-45bd-98cb-509e787bc8b7"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA[$F{libelle}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

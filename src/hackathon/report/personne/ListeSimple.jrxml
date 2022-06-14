@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListeSimple" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c0d6005c-9602-4b75-b66a-92495676aaa8">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[cGVyc29ubmUgQVMgLDE5LDM1LDljOGZlYWY4LWM3MzMtNGRlZC05MmJhLTEwYjA1MGQwOGFmZTtj
+YXRlZ29yaWUgQVMgLDIxMiwyMyxhYzdhZGYyOS04NmUzLTQzOTItYWRiMi0wMmYzN2RlMWMyNDU7]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreSQL - tuto"/>
+	<style name="Défaut" isDefault="true" fontName="Arial" fontSize="12"/>
+	<style name="Etiquette" isBold="true"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT personne.idpersonne,
+	personne.idcategorie,
+	personne.nom,
+	personne.prenom,
+	categorie.libelle
+FROM personne
+	INNER JOIN categorie ON 
+	 personne.idcategorie = categorie.idcategorie 
+ORDER BY personne.nom ASC,
+	personne.prenom ASC]]>
+	</queryString>
+	<field name="idpersonne" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="idpersonne"/>
+		<property name="com.jaspersoft.studio.field.label" value="idpersonne"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="personne"/>
+	</field>
+	<field name="nom" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nom"/>
+		<property name="com.jaspersoft.studio.field.label" value="nom"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="personne"/>
+	</field>
+	<field name="prenom" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="prenom"/>
+		<property name="com.jaspersoft.studio.field.label" value="prenom"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="personne"/>
+	</field>
+	<field name="idcategorie" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="idcategorie"/>
+		<property name="com.jaspersoft.studio.field.label" value="idcategorie"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="personne"/>
+	</field>
+	<field name="libelle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="libelle"/>
+		<property name="com.jaspersoft.studio.field.label" value="libelle"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="categorie"/>
+	</field>
+	<variable name="nbPersonnes" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{idpersonne}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.grid.JSSGridBagLayout"/>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="0" width="139" height="52" uuid="21beaed6-5804-4721-ae5b-43862d3d73c5"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="139" y="0" width="278" height="52" uuid="10c3ad78-c680-42c5-aef7-96c302a61c05">
+					<property name="com.jaspersoft.layout.grid.x" value="-1"/>
+					<property name="com.jaspersoft.layout.grid.y" value="-1"/>
+					<property name="com.jaspersoft.layout.grid.weight.x" value="2.0"/>
+					<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+					<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+					<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+					<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Liste complète des personnes]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="417" y="0" width="138" height="52" uuid="cb6a8988-4910-48ce-85da-2255eb1006d0"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<staticText>
+				<reportElement style="Etiquette" x="0" y="0" width="40" height="30" uuid="c708229d-dec7-4cd3-8fb0-de3a25f604d2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b81c43c7-4481-4218-bafd-621eb468f9e3"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box rightPadding="6"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Etiquette" x="40" y="0" width="180" height="30" uuid="807fd310-308b-4d17-8984-6109bbe5330f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cae6a5da-6220-4d53-9ae3-0677406ba57b"/>
+				</reportElement>
+				<text><![CDATA[Nom / Prénom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Etiquette" x="220" y="0" width="160" height="30" uuid="bd868673-5db7-4540-b424-f45eca47b3bb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="86f24e9d-df83-4ba9-a7d4-084e3533f46f"/>
+				</reportElement>
+				<text><![CDATA[Catégorie]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<textField>
+				<reportElement x="0" y="0" width="40" height="18" uuid="2e50968a-39bc-4576-a929-405a048c0359">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b81c43c7-4481-4218-bafd-621eb468f9e3"/>
+				</reportElement>
+				<box rightPadding="6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{idpersonne}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="0" width="180" height="18" uuid="9160cf5f-eba8-4883-90dd-e2e0ba9c5c74">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cae6a5da-6220-4d53-9ae3-0677406ba57b"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nom}.toUpperCase() + " " +$F{prenom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="160" height="18" uuid="b1352196-fe55-4f3e-8e3e-d9ce6f42e8d7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="86f24e9d-df83-4ba9-a7d4-084e3533f46f"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[String.format( "%3d  %s", $F{idcategorie}, $F{libelle}  )]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="186" y="20" width="50" height="18" uuid="84d934e4-9c34-490d-ad76-702af5dba975">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$V{nbPersonnes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="46" y="20" width="140" height="18" uuid="06a89b77-00d1-450e-abcf-e86fd47fd246">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Nombre de personnes :]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

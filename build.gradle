@@ -1,0 +1,50 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+
+	implementation project(':~jfox') 
+	implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.4.2.Final'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.2'
+	
+	implementation group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.18.1'
+	implementation group: 'net.sf.jasperreports', name: 'jasperreports-fonts', version: '6.18.1'
+	implementation group: 'com.lowagie', name: 'itext', version: '2.1.7'
+	implementation group: 'com.google.zxing', name: 'core', version: '3.4.1'
+	implementation group: 'net.sf.barcode4j', name: 'barcode4j', version: '2.1'
+	implementation group: 'org.apache.xmlgraphics', name: 'batik-bridge', version: '1.14'
+	implementation group: 'xerces', name: 'xercesImpl', version: '2.12.2'
+	
+}
+
+
+targetCompatibility = 15
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+sourceSets {
+	main.java.srcDirs = ['src']
+	main.resources.srcDirs = ['src']
+}
+
+eclipse {
+	classpath { 
+		file.whenMerged {
+			entries.each { 
+				entry ->
+					if (entry.kind == 'src' && entry.hasProperty('output')) {
+						entry.output = null
+					}
+			}
+		}
+		defaultOutputDir = file('build/classes') 
+	}
+}
