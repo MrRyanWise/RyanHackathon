@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <td colspan="2"><img src="https://github.com/MrRyanWise/RyanHackathon/blob/main/src/Assets/Hackathon.gif?raw=true"/></td>
+    <td colspan="2"><img src="src/Assets/Hackathon.gif"/></td>
   </tr>
   <tr>
     <td><img src="src/Assets/H1.png"/></td>
