@@ -2,6 +2,9 @@
 
 <table>
   <tr>
+    <td colspan="2"><img src="src/Assets/hackathon.gif"/></td>
+  </tr>
+  <tr>
     <td><img src="src/Assets/H1.png"/></td>
     <td><img src="src/Assets/H2.png"/></td>
   </tr>
